@@ -50,8 +50,6 @@ class SubDirection(BaseModel):
 class CourseProgress(BaseModel):
     status: str = "not_started"
     completed_knowledge: list[str] = []
-    started_at: str = ""
-    hours_spent: int = 0
 
 
 class UserStats(BaseModel):
@@ -61,16 +59,25 @@ class UserStats(BaseModel):
     milestones: list[str] = []
 
 
+class UserPreferences(BaseModel):
+    skill_level: Optional[str] = None
+    learning_goal: Optional[str] = None
+
+
 class User(BaseModel):
     user_id: str
     username: str
+    email: Optional[str] = None
+    created_at: Optional[str] = None
     selected_directions: list[str] = []
+    learning_preferences: Optional[UserPreferences] = None
     progress: dict[str, CourseProgress] = {}
     stats: UserStats = Field(default_factory=UserStats)
 
 
 class UserCreate(BaseModel):
     username: str
+    email: str
     password: str
 
 
@@ -82,3 +89,8 @@ class UserLogin(BaseModel):
 class Token(BaseModel):
     access_token: str
     token_type: str = "bearer"
+
+
+class ChangePasswordRequest(BaseModel):
+    old_password: str
+    new_password: str

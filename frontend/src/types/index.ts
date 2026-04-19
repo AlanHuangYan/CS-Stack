@@ -45,8 +45,6 @@ export interface Course {
 export interface CourseProgress {
   status: string
   completed_knowledge: string[]
-  started_at: string
-  hours_spent: number
 }
 
 export interface UserStats {
