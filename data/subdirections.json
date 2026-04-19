@@ -1,1 +1,16 @@
-{"subdirections": []}
+{
+  "subdirections": [
+    {
+      "id": "backend-api",
+      "name": "API 设计与开发",
+      "directions": ["backend"],
+      "courses": ["rest-api-basics"]
+    },
+    {
+      "id": "frontend-core",
+      "name": "核心技能",
+      "directions": ["frontend"],
+      "courses": ["html-css-basics"]
+    }
+  ]
+}

@@ -1,1 +1,56 @@
-{"courses": []}
+{
+  "courses": [
+    {
+      "id": "rest-api-basics",
+      "title": "RESTful API 基础",
+      "difficulty": "beginner",
+      "estimated_hours": 15,
+      "prerequisites": [],
+      "knowledge_points": {
+        "core": [
+          {"name": "HTTP 方法与状态码", "description": "GET、POST、PUT、DELETE 及常见状态码", "exercise": "使用 curl 发送不同 HTTP 方法的请求"},
+          {"name": "REST 设计原则", "description": "资源命名、URL 设计、无状态", "exercise": "为一个博客系统设计 RESTful API"},
+          {"name": "JSON 数据格式", "description": "请求和响应的 JSON 序列化", "exercise": "编写 JSON 请求/响应示例"}
+        ],
+        "important": [
+          {"name": "认证与授权", "description": "API Key、JWT、OAuth2 基础", "exercise": "实现简单的 JWT 认证中间件"},
+          {"name": "错误处理", "description": "标准错误响应格式", "exercise": "设计统一的错误响应结构"}
+        ],
+        "extended": [
+          {"name": "API 版本控制", "description": "URL 版本、Header 版本", "exercise": ""},
+          {"name": "分页与过滤", "description": "游标分页、偏移分页", "exercise": ""},
+          {"name": "API 文档", "description": "OpenAPI/Swagger 规范", "exercise": ""}
+        ]
+      },
+      "resources": [
+        {"type": "article", "url": "https://restfulapi.net/", "title": "RESTful API 设计指南"}
+      ]
+    },
+    {
+      "id": "html-css-basics",
+      "title": "HTML & CSS 基础",
+      "difficulty": "beginner",
+      "estimated_hours": 20,
+      "prerequisites": [],
+      "knowledge_points": {
+        "core": [
+          {"name": "HTML 语义化标签", "description": "header、nav、main、article、section、footer", "exercise": "用语义化标签构建一个简单的文章页面"},
+          {"name": "CSS 选择器与优先级", "description": "类、ID、属性、伪类选择器", "exercise": "编写 CSS 选择器优先级排序练习"},
+          {"name": "Flexbox 布局", "description": "主轴、交叉轴、flex-grow/shrink/basis", "exercise": "用 Flexbox 实现一个响应式导航栏"}
+        ],
+        "important": [
+          {"name": "CSS Grid 布局", "description": "网格轨道、区域、对齐", "exercise": "用 Grid 实现一个杂志式布局"},
+          {"name": "响应式设计", "description": "Media Queries、断点", "exercise": "让一个页面在 mobile/tablet/desktop 下自适应"}
+        ],
+        "extended": [
+          {"name": "CSS 自定义属性", "description": "变量、主题切换", "exercise": ""},
+          {"name": "CSS 动画", "description": "transition、animation、keyframes", "exercise": ""},
+          {"name": "无障碍基础", "description": "ARIA 属性、键盘导航", "exercise": ""}
+        ]
+      },
+      "resources": [
+        {"type": "article", "url": "https://developer.mozilla.org/zh-CN/docs/Learn", "title": "MDN Web 开发教程"}
+      ]
+    }
+  ]
+}

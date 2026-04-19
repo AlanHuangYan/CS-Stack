@@ -1,1 +1,20 @@
-{"directions": []}
+{
+  "directions": [
+    {
+      "id": "backend",
+      "name": "后端开发",
+      "name_en": "Backend Development",
+      "icon": "server",
+      "description": "学习服务器端开发技术，包括 API 设计、微服务、数据库集成等",
+      "subdirections": ["backend-api", "backend-microservices", "backend-db"]
+    },
+    {
+      "id": "frontend",
+      "name": "前端开发",
+      "name_en": "Frontend Development",
+      "icon": "layout",
+      "description": "学习现代 Web 前端技术，包括 React、Vue、CSS 工程等",
+      "subdirections": ["frontend-core", "frontend-frameworks"]
+    }
+  ]
+}
