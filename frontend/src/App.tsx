@@ -145,13 +145,13 @@ function NavBar() {
           <Logo size={28} />
           <span className="text-lg font-bold text-gray-900">CS-Stack</span>
         </Link>
-        
-        <Link to="/paths" className="text-sm text-gray-600 hover:text-gray-900">
-          学习方向
-        </Link>
         <Link to="/my-plan" className="text-sm text-gray-600 hover:text-gray-900">
           我的学习计划
         </Link>
+        <Link to="/paths" className="text-sm text-gray-600 hover:text-gray-900">
+          学习方向
+        </Link>
+        
         <Link to="/courses" className="text-sm text-gray-600 hover:text-gray-900">
           课程库
         </Link>

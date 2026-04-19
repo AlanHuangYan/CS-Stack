@@ -4,6 +4,7 @@ import { Plus, BookOpen, X } from "lucide-react"
 import { api } from "../api/client"
 import { StudyPlanDirectionCard } from "../components/StudyPlanDirectionCard"
 import { StudyPlanCourseCard } from "../components/StudyPlanCourseCard"
+import { ConfirmDialog } from "../components/ConfirmDialog"
 
 interface DirectionProgress {
   id: string
@@ -23,10 +24,17 @@ interface StandaloneCourse {
   status: string
 }
 
+interface RemoveConfirm {
+  type: "direction" | "course"
+  id: string
+  name: string
+}
+
 export function MyStudyPlan() {
   const [directions, setDirections] = useState<DirectionProgress[]>([])
   const [standaloneCourses, setStandaloneCourses] = useState<StandaloneCourse[]>([])
   const [loading, setLoading] = useState(true)
+  const [confirm, setConfirm] = useState<RemoveConfirm | null>(null)
 
   const fetchPlan = () => {
     setLoading(true)
@@ -54,6 +62,39 @@ export function MyStudyPlan() {
       .then(() => {
         setDirections((prev) => prev.filter((d) => d.id !== directionId))
       })
+  }
+
+  const requestRemoveDirection = (dir: DirectionProgress) => {
+    setConfirm({ type: "direction", id: dir.id, name: dir.name })
+  }
+
+  const requestRemoveCourse = (course: StandaloneCourse) => {
+    setConfirm({ type: "course", id: course.id, name: course.title })
+  }
+
+  const executeRemove = () => {
+    if (!confirm) return
+    if (confirm.type === "direction") {
+      handleRemoveDirection(confirm.id)
+    } else {
+      handleRemoveCourse(confirm.id)
+    }
+  }
+
+  const getWarning = (): string | undefined => {
+    if (!confirm) return undefined
+    if (confirm.type === "direction") {
+      const dir = directions.find((d) => d.id === confirm.id)
+      if (dir && dir.completed > 0) {
+        return `该方向有 ${dir.completed} 门课程已完成。移除学习计划不会删除你的学习进度。`
+      }
+    } else {
+      const course = standaloneCourses.find((c) => c.id === confirm.id)
+      if (course && course.status === "completed") {
+        return "该课程已完成。移除学习计划不会删除你的学习进度。"
+      }
+    }
+    return undefined
   }
 
   if (loading) {
@@ -99,7 +140,7 @@ export function MyStudyPlan() {
               <div key={dir.id} className="relative">
                 <StudyPlanDirectionCard data={dir} />
                 <button
-                  onClick={() => handleRemoveDirection(dir.id)}
+                  onClick={() => requestRemoveDirection(dir)}
                   className="absolute right-2 top-2 rounded p-1 text-gray-400 transition hover:bg-red-50 hover:text-red-500"
                 >
                   <X className="h-4 w-4" />
@@ -118,11 +159,22 @@ export function MyStudyPlan() {
               <StudyPlanCourseCard
                 key={course.id}
                 data={course}
-                onRemove={() => handleRemoveCourse(course.id)}
+                onRemove={() => requestRemoveCourse(course)}
               />
             ))}
           </div>
         </div>
+      )}
+
+      {confirm && (
+        <ConfirmDialog
+          open={!!confirm}
+          title={confirm.type === "direction" ? "移除学习方向" : "移除课程"}
+          message={`确定要从学习计划中移除「${confirm.name}」吗？`}
+          warning={getWarning()}
+          onConfirm={executeRemove}
+          onCancel={() => setConfirm(null)}
+        />
       )}
     </div>
   )

@@ -1,5 +1,26 @@
 import { Link } from "react-router-dom"
-import { ArrowRight, BookOpen, CheckCircle, PlayCircle, Circle } from "lucide-react"
+import { ArrowRight, CheckCircle, PlayCircle, Circle } from "lucide-react"
+
+const ICON_MAP: Record<string, string> = {
+  layout: "🖥️",
+  server: "⚙️",
+  code: "💻",
+  wrench: "🔧",
+  smartphone: "📱",
+  database: "🗃️",
+  bot: "🤖",
+  brain: "🧠",
+  cpu: "🔬",
+  cloud: "☁️",
+  "bar-chart-3": "📊",
+  eye: "👁️",
+  settings: "🛠️",
+  "git-branch": "🌳",
+  "check-square": "✅",
+  "message-square": "💬",
+  shield: "🛡️",
+  video: "🎬",
+}
 
 interface DirectionProgress {
   id: string
@@ -13,12 +34,14 @@ interface DirectionProgress {
 }
 
 export function StudyPlanDirectionCard({ data }: { data: DirectionProgress }) {
+  const displayIcon = ICON_MAP[data.icon] || "📚"
+
   return (
     <div className="relative rounded-xl border bg-white p-5 transition hover:shadow-md">
       <div className="flex items-start justify-between">
         <div className="flex items-center gap-3">
           <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-blue-50 text-xl">
-            {data.icon}
+            {displayIcon}
           </div>
           <div>
             <h3 className="font-semibold text-gray-900">{data.name}</h3>

@@ -1,20 +1,22 @@
 {
   "directions": [
-    {
-      "id": "backend",
-      "name": "后端开发",
-      "name_en": "Backend Development",
-      "icon": "server",
-      "description": "学习服务器端开发技术，包括 API 设计、微服务、数据库集成等",
-      "subdirections": ["backend-api", "backend-microservices", "backend-db"]
-    },
-    {
-      "id": "frontend",
-      "name": "前端开发",
-      "name_en": "Frontend Development",
-      "icon": "layout",
-      "description": "学习现代 Web 前端技术，包括 React、Vue、CSS 工程等",
-      "subdirections": ["frontend-core", "frontend-frameworks"]
-    }
+    { "id": "frontend", "name": "前端开发", "name_en": "Frontend Development", "icon": "layout", "description": "学习 Web 前端技术，构建用户界面", "subdirections": ["frontend-core", "frontend-frameworks", "frontend-perf", "frontend-css", "frontend-build", "frontend-test", "frontend-a11y"] },
+    { "id": "backend", "name": "后端开发", "name_en": "Backend Development", "icon": "server", "description": "学习服务器端开发技术", "subdirections": ["backend-api", "backend-microservices", "backend-db", "backend-perf", "backend-auth", "backend-mq", "backend-serverless"] },
+    { "id": "programming-languages", "name": "编程语言", "name_en": "Programming Languages", "icon": "code", "description": "掌握主流编程语言核心技能", "subdirections": ["lang-python", "lang-js-ts", "lang-java", "lang-c-cpp", "lang-go", "lang-rust", "lang-csharp", "lang-swift", "lang-kotlin", "lang-sql-shell"] },
+    { "id": "dev-tools", "name": "开发工具", "name_en": "Development Tools", "icon": "wrench", "description": "熟练使用开发工具和 IDE", "subdirections": ["tools-ide", "tools-git", "tools-debug", "tools-package", "tools-api-test", "tools-db-mgmt", "tools-collab", "tools-docker", "tools-ai-assistant"] },
+    { "id": "mobile", "name": "客户端/移动端", "name_en": "Mobile Development", "icon": "smartphone", "description": "学习移动应用开发", "subdirections": ["mobile-android", "mobile-ios", "mobile-cross", "mobile-arch", "mobile-offline", "mobile-publish"] },
+    { "id": "data-mining", "name": "数据挖掘", "name_en": "Data Mining", "icon": "database", "description": "从数据中发现模式和知识", "subdirections": ["mining-association", "mining-clustering", "mining-anomaly", "mining-recommendation", "mining-feature", "mining-text"] },
+    { "id": "ai-agent", "name": "AI Agent", "name_en": "AI Agent", "icon": "bot", "description": "构建智能体应用", "subdirections": ["agent-arch", "agent-tool", "agent-memory", "agent-plan", "agent-multi", "agent-framework", "agent-mcp", "agent-skill", "agent-eval", "agent-app"] },
+    { "id": "llm", "name": "大模型 (LLM)", "name_en": "Large Language Models", "icon": "brain", "description": "学习和应用大语言模型", "subdirections": ["llm-arch", "llm-prompt", "llm-rag", "llm-finetune", "llm-deploy", "llm-eval", "llm-data", "llm-memory", "llm-security"] },
+    { "id": "ml", "name": "机器学习", "name_en": "Machine Learning", "icon": "cpu", "description": "机器学习理论和实践", "subdirections": ["ml-supervised", "ml-unsupervised", "ml-deep", "ml-rl", "ml-mlops", "ml-ethics"] },
+    { "id": "infra", "name": "基础架构", "name_en": "Infrastructure", "icon": "cloud", "description": "云原生和基础设施工程", "subdirections": ["infra-cloud", "infra-k8s", "infra-iac", "infra-network", "infra-observability", "infra-sre"] },
+    { "id": "bigdata", "name": "大数据", "name_en": "Big Data", "icon": "bar-chart-3", "description": "大数据处理和分析", "subdirections": ["bigdata-hadoop", "bigdata-spark", "bigdata-stream", "bigdata-warehouse", "bigdata-etl", "bigdata-cloud"] },
+    { "id": "cv", "name": "计算机视觉", "name_en": "Computer Vision", "icon": "eye", "description": "图像和视频理解技术", "subdirections": ["cv-traditional", "cv-deep", "cv-detection", "cv-generation", "cv-video", "cv-3d"] },
+    { "id": "ops", "name": "运维工程", "name_en": "Operations Engineering", "icon": "settings", "description": "系统运维和自动化", "subdirections": ["ops-monitor", "ops-log", "ops-cicd", "ops-config", "ops-dr", "ops-linux"] },
+    { "id": "algo", "name": "算法", "name_en": "Algorithms", "icon": "git-branch", "description": "算法和数据结构", "subdirections": ["algo-ds", "algo-sort", "algo-dp", "algo-graph", "algo-complexity", "algo-math", "algo-string"] },
+    { "id": "testing", "name": "测试工程", "name_en": "Testing Engineering", "icon": "check-square", "description": "软件测试实践", "subdirections": ["test-unit", "test-integration", "test-e2e", "test-perf", "test-tdd", "test-security", "test-auto"] },
+    { "id": "nlp", "name": "自然语言处理", "name_en": "Natural Language Processing", "icon": "message-square", "description": "文本和语言处理技术", "subdirections": ["nlp-traditional", "nlp-transformer", "nlp-llm", "nlp-app", "nlp-multimodal", "nlp-align"] },
+    { "id": "security", "name": "安全", "name_en": "Security", "icon": "shield", "description": "网络安全和应用安全", "subdirections": ["sec-network", "sec-crypto", "sec-app", "sec-cloud", "sec-compliance", "sec-forensics"] },
+    { "id": "multimedia", "name": "多媒体", "name_en": "Multimedia", "icon": "video", "description": "音频、视频、图像处理", "subdirections": ["mm-audio", "mm-video", "mm-streaming", "mm-image", "mm-graphics", "mm-arvr"] }
   ]
 }

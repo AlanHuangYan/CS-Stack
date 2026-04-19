@@ -1,0 +1,9 @@
+{
+  "ai": {
+    "provider": "mock",
+    "openai_api_key": "",
+    "openai_model": "gpt-4",
+    "claude_api_key": "",
+    "claude_model": "claude-3-sonnet"
+  }
+}

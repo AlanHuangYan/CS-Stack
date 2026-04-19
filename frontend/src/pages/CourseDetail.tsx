@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react"
 import { useParams, useNavigate } from "react-router-dom"
-import { ArrowLeft, Clock } from "lucide-react"
+import { ArrowLeft } from "lucide-react"
 import { api } from "../api/client"
 import { Course } from "../types"
 import { KnowledgePointSection } from "../components/KnowledgePointSection"
@@ -106,9 +106,6 @@ export function CourseDetail() {
       <div className="mb-6">
         <h1 className="text-2xl font-bold text-gray-900">{course.title}</h1>
         <div className="mt-2 flex items-center gap-4 text-sm text-gray-500">
-          <span className="flex items-center gap-1">
-            <Clock className="h-4 w-4" /> {course.estimated_hours} 小时
-          </span>
           <span>难度: {course.difficulty}</span>
         </div>
         {course.prerequisites.length > 0 && (

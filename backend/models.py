@@ -25,7 +25,6 @@ class Course(BaseModel):
     id: str
     title: str
     difficulty: str = "beginner"
-    estimated_hours: int = 10
     prerequisites: list[str] = []
     knowledge_points: CourseKnowledgePoints = Field(default_factory=CourseKnowledgePoints)
     resources: list[Resource] = []

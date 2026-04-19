@@ -59,8 +59,38 @@ def delete_item(file_name: str, key: str, item_id: str, id_field: str = "id") ->
 
 
 def read_user(user_id: str) -> dict | None:
-    return read_json(f"users/{user_id}.json")
+    data = read_json("users.json")
+    if data is None:
+        return None
+    for user in data.get("users", []):
+        if user.get("user_id") == user_id:
+            return user
+    return None
 
 
 def write_user(user_id: str, data: dict) -> None:
-    write_json(f"users/{user_id}.json", data)
+    file_name = "users.json"
+    file_path = DATA_DIR / file_name
+    all_data = read_json(file_name) or {"users": []}
+    users = all_data.get("users", [])
+    found = False
+    for i, user in enumerate(users):
+        if user.get("user_id") == user_id:
+            users[i] = data
+            found = True
+            break
+    if not found:
+        users.append(data)
+    all_data["users"] = users
+    write_json(file_name, all_data)
+
+
+def read_all_users() -> list[dict]:
+    data = read_json("users.json")
+    if data is None:
+        return []
+    return data.get("users", [])
+
+
+def write_all_users(users: list[dict]) -> None:
+    write_json("users.json", {"users": users})

@@ -36,7 +36,6 @@ export interface Course {
   id: string
   title: string
   difficulty: string
-  estimated_hours: number
   prerequisites: string[]
   knowledge_points: CourseKnowledgePoints
   resources: Resource[]

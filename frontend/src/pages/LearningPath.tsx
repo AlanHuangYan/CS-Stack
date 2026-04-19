@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react"
 import { useParams, Link } from "react-router-dom"
-import { ArrowLeft, Clock, BookOpen, Target, Plus, Check, Play } from "lucide-react"
+import { ArrowLeft, Clock, BookOpen, Target, Plus, Check, Play, Shield } from "lucide-react"
 import { api } from "../api/client"
 import { SkillTree } from "../components/SkillTree"
 
@@ -10,7 +10,6 @@ interface PathItem {
   course_id: string
   course_title: string
   difficulty: string
-  estimated_hours: number
   knowledge_points: number
   prerequisites: string[]
 }
@@ -27,8 +26,8 @@ export function LearningPath() {
   const { id } = useParams()
   const [pathData, setPathData] = useState<LearningPathData | null>(null)
   const [loading, setLoading] = useState(true)
-  const [inPlan, setInPlan] = useState(false)
-  const [courseInPlan, setCourseInPlan] = useState<Set<string>>(new Set())
+  const [directionInPlan, setDirectionInPlan] = useState(false)
+  const [standaloneCourses, setStandaloneCourses] = useState<Set<string>>(new Set())
 
   useEffect(() => {
     if (!id) return
@@ -39,7 +38,7 @@ export function LearningPath() {
       .then(([pathRes, planRes]) => {
         setPathData(pathRes.data)
         const plan = planRes.data
-        setInPlan(plan.directions?.some((d: any) => d.id === id) || false)
+        setDirectionInPlan(plan.directions?.some((d: any) => d.id === id) || false)
         const courseIds = new Set<string>()
         if (pathRes.data?.items) {
           pathRes.data.items.forEach((item: PathItem) => {
@@ -48,31 +47,36 @@ export function LearningPath() {
             }
           })
         }
-        setCourseInPlan(courseIds)
+        setStandaloneCourses(courseIds)
       })
       .finally(() => setLoading(false))
   }, [id])
 
   const toggleDirectionPlan = () => {
     if (!id) return
-    const method = inPlan ? "delete" : "post"
+    const method = directionInPlan ? "delete" : "post"
     api[method](`/api/studyplan/me/direction/${id}`)
-      .then(() => setInPlan(!inPlan))
+      .then(() => {
+        setDirectionInPlan(!directionInPlan)
+        if (!directionInPlan) {
+          setStandaloneCourses(new Set())
+        }
+      })
   }
 
   const toggleCoursePlan = (courseId: string) => {
-    const isAdded = courseInPlan.has(courseId)
+    const isAdded = standaloneCourses.has(courseId)
     const method = isAdded ? "delete" : "post"
     api[method](`/api/studyplan/me/course/${courseId}`)
       .then(() => {
         if (isAdded) {
-          setCourseInPlan((prev) => {
+          setStandaloneCourses((prev) => {
             const next = new Set(prev)
             next.delete(courseId)
             return next
           })
         } else {
-          setCourseInPlan((prev) => new Set([...prev, courseId]))
+          setStandaloneCourses((prev) => new Set([...prev, courseId]))
         }
       })
   }
@@ -112,13 +116,13 @@ export function LearningPath() {
           <button
             onClick={toggleDirectionPlan}
             className={`inline-flex items-center gap-2 rounded-lg px-4 py-2 text-sm font-medium transition ${
-              inPlan
+              directionInPlan
                 ? "border border-green-300 bg-green-50 text-green-700"
                 : "bg-blue-600 text-white hover:bg-blue-700"
             }`}
           >
-            {inPlan ? <Check className="h-4 w-4" /> : <Plus className="h-4 w-4" />}
-            {inPlan ? "已在计划中" : "加入学习计划"}
+            {directionInPlan ? <Check className="h-4 w-4" /> : <Plus className="h-4 w-4" />}
+            {directionInPlan ? "整个方向已在计划中" : "整个方向加入计划"}
           </button>
           {firstCourseId && (
             <Link
@@ -138,7 +142,10 @@ export function LearningPath() {
             <h3 className="mb-3 font-medium text-gray-700">{items[0].subdirection_name}</h3>
             <div className="space-y-2">
               {items.map((item) => {
-                const isAdded = courseInPlan.has(item.course_id)
+                const isInherited = directionInPlan
+                const isStandalone = standaloneCourses.has(item.course_id)
+                const isInPlan = isInherited || isStandalone
+
                 return (
                   <div
                     key={item.course_id}
@@ -155,17 +162,33 @@ export function LearningPath() {
                     </div>
                     <div className="flex items-center gap-4">
                       <span className="text-sm text-gray-500">{item.knowledge_points} 知识点</span>
-                      <button
-                        onClick={() => toggleCoursePlan(item.course_id)}
-                        className={`rounded-lg p-1.5 text-xs transition ${
-                          isAdded
-                            ? "text-green-600 hover:bg-green-50"
-                            : "text-gray-400 hover:bg-gray-100 hover:text-gray-600"
-                        }`}
-                        title={isAdded ? "从学习计划中移除" : "加入学习计划"}
-                      >
-                        {isAdded ? <Check className="h-4 w-4" /> : <Plus className="h-4 w-4" />}
-                      </button>
+                      <div className="flex items-center gap-1">
+                        {isInherited && (
+                          <span className="text-xs text-green-500" aria-label="随方向加入计划">
+                            <Shield className="h-4 w-4" />
+                          </span>
+                        )}
+                        <button
+                          onClick={() => !isInherited && toggleCoursePlan(item.course_id)}
+                          disabled={isInherited}
+                          className={`rounded-lg p-1.5 text-xs transition ${
+                            isInherited
+                              ? "cursor-not-allowed text-green-500"
+                              : isStandalone
+                                ? "text-green-600 hover:bg-green-50"
+                                : "text-gray-400 hover:bg-gray-100 hover:text-gray-600"
+                          }`}
+                          title={
+                            isInherited
+                              ? "随方向加入计划，不可单独移除"
+                              : isStandalone
+                                ? "从学习计划中移除"
+                                : "加入学习计划"
+                          }
+                        >
+                          {isInPlan ? <Check className="h-4 w-4" /> : <Plus className="h-4 w-4" />}
+                        </button>
+                      </div>
                     </div>
                   </div>
                 )

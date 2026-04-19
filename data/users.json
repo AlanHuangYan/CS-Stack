@@ -50,6 +50,12 @@
         "badges": [],
         "milestones": [],
         "checkin_calendar": {}
+      },
+      "study_plan": {
+        "directions": [
+          "frontend"
+        ],
+        "courses": []
       }
     }
   ]
