@@ -1,5 +1,6 @@
 from fastapi import APIRouter, HTTPException, Query
 from typing import Optional
+from pathlib import Path
 from backend.models import Course
 from backend.storage import read_list, write_list, append_item, delete_item
 
@@ -116,3 +117,27 @@ def get_recommendations(direction_id: str, limit: int = Query(6, ge=1, le=20)):
     
     recommended = [c for c in courses if c["id"] in course_ids]
     return recommended[:limit]
+
+
+@router.get("/{course_id}/content")
+def get_course_content(course_id: str):
+    """获取课程 Markdown 内容。"""
+    subdirections = read_list(SUB_DIR_FILE, SUB_DIR_KEY)
+    directions = read_list(DIR_FILE, DIR_KEY)
+
+    direction_id = None
+    for sub in subdirections:
+        if course_id in sub.get("courses", []):
+            direction_id = sub.get("directions", [None])[0]
+            break
+
+    if not direction_id:
+        raise HTTPException(status_code=404, detail="课程所属方向未找到")
+
+    base_dir = Path(__file__).resolve().parent.parent.parent / "data" / "courses"
+    md_path = base_dir / direction_id / f"{course_id}.md"
+
+    if not md_path.exists():
+        raise HTTPException(status_code=404, detail="课程内容文件不存在")
+
+    return {"content": md_path.read_text(encoding="utf-8")}

@@ -5,42 +5,6 @@
       "title": "RESTful API 基础",
       "difficulty": "beginner",
       "prerequisites": [],
-      "knowledge_points": {
-        "core": [
-          {
-            "name": "HTTP 方法与状态码",
-            "description": "GET/POST/PUT/DELETE 及常见状态码",
-            "exercise": "设计一个用户 CRUD API"
-          },
-          {
-            "name": "资源建模",
-            "description": "如何用名词建模 REST 资源",
-            "exercise": "为一个博客系统设计资源结构"
-          }
-        ],
-        "important": [
-          {
-            "name": "查询参数与分页",
-            "description": "limit/offset 分页模式",
-            "exercise": "实现分页查询接口"
-          },
-          {
-            "name": "错误处理",
-            "description": "统一的错误响应格式",
-            "exercise": "设计错误响应中间件"
-          }
-        ],
-        "extended": [
-          {
-            "name": "HATEOAS",
-            "description": "超媒体作为应用状态引擎"
-          },
-          {
-            "name": "API 版本策略",
-            "description": "URL 路径、Header、查询参数版本控制"
-          }
-        ]
-      },
       "resources": []
     },
     {
@@ -48,51 +12,6 @@
       "title": "HTML & CSS 基础",
       "difficulty": "beginner",
       "prerequisites": [],
-      "knowledge_points": {
-        "core": [
-          {
-            "name": "HTML 语义化标签",
-            "description": "header, nav, main, article, section, aside, footer",
-            "exercise": "用语义化标签重构一个新闻页面"
-          },
-          {
-            "name": "CSS 选择器",
-            "description": "类、ID、属性、伪类、伪元素选择器",
-            "exercise": "编写一个完整的页面样式表"
-          },
-          {
-            "name": "盒模型",
-            "description": "content-box vs border-box",
-            "exercise": "实现一个 3 列布局"
-          }
-        ],
-        "important": [
-          {
-            "name": "Flexbox 布局",
-            "description": "弹性盒子排列",
-            "exercise": "实现一个响应式导航栏"
-          },
-          {
-            "name": "CSS Grid 布局",
-            "description": "二维网格布局",
-            "exercise": "实现一个卡片网格页面"
-          }
-        ],
-        "extended": [
-          {
-            "name": "CSS 动画",
-            "description": "transition 和 animation"
-          },
-          {
-            "name": "CSS 变量",
-            "description": "自定义属性"
-          },
-          {
-            "name": "响应式设计",
-            "description": "Media Queries 断点"
-          }
-        ]
-      },
       "resources": []
     },
     {
@@ -100,51 +19,6 @@
       "title": "Python 基础",
       "difficulty": "beginner",
       "prerequisites": [],
-      "knowledge_points": {
-        "core": [
-          {
-            "name": "变量与数据类型",
-            "description": "int, float, str, bool, list, dict",
-            "exercise": "实现一个简单的通讯录管理程序"
-          },
-          {
-            "name": "控制流",
-            "description": "if/elif/else, for, while",
-            "exercise": "编写一个猜数字游戏"
-          },
-          {
-            "name": "函数定义",
-            "description": "参数、返回值、默认值",
-            "exercise": "实现一组数学工具函数"
-          }
-        ],
-        "important": [
-          {
-            "name": "列表推导式",
-            "description": "简洁的列表生成语法",
-            "exercise": "用推导式处理数据列表"
-          },
-          {
-            "name": "文件操作",
-            "description": "open/read/write/with 语句",
-            "exercise": "实现一个 CSV 文件读取器"
-          }
-        ],
-        "extended": [
-          {
-            "name": "装饰器",
-            "description": "@decorator 语法"
-          },
-          {
-            "name": "生成器",
-            "description": "yield 关键字"
-          },
-          {
-            "name": "上下文管理器",
-            "description": "__enter__/__exit__"
-          }
-        ]
-      },
       "resources": []
     },
     {
@@ -152,46 +26,6 @@
       "title": "Git 版本控制",
       "difficulty": "beginner",
       "prerequisites": [],
-      "knowledge_points": {
-        "core": [
-          {
-            "name": "Git 基本概念",
-            "description": "仓库、暂存区、提交、分支",
-            "exercise": "初始化仓库并完成第一次提交"
-          },
-          {
-            "name": "常用命令",
-            "description": "add, commit, push, pull, status, log",
-            "exercise": "完成日常开发提交流程"
-          }
-        ],
-        "important": [
-          {
-            "name": "分支管理",
-            "description": "branch, merge, rebase",
-            "exercise": "创建功能分支并合并到主分支"
-          },
-          {
-            "name": "冲突解决",
-            "description": "合并冲突的识别和解决",
-            "exercise": "手动解决一次合并冲突"
-          }
-        ],
-        "extended": [
-          {
-            "name": "Git 钩子",
-            "description": "pre-commit, pre-push 钩子"
-          },
-          {
-            "name": "cherry-pick",
-            "description": "挑选提交"
-          },
-          {
-            "name": "stash",
-            "description": "临时保存修改"
-          }
-        ]
-      },
       "resources": []
     },
     {
@@ -199,105 +33,13 @@
       "title": "Docker 基础",
       "difficulty": "intermediate",
       "prerequisites": [],
-      "knowledge_points": {
-        "core": [
-          {
-            "name": "容器概念",
-            "description": "容器 vs 虚拟机",
-            "exercise": "运行第一个 Docker 容器"
-          },
-          {
-            "name": "Dockerfile",
-            "description": "FROM, RUN, COPY, CMD, EXPOSE",
-            "exercise": "为一个 Python 应用编写 Dockerfile"
-          },
-          {
-            "name": "镜像操作",
-            "description": "build, pull, push, tag",
-            "exercise": "构建并推送自定义镜像"
-          }
-        ],
-        "important": [
-          {
-            "name": "数据卷",
-            "description": "Volume 和 Bind Mount",
-            "exercise": "使用 Volume 持久化数据库数据"
-          },
-          {
-            "name": "网络",
-            "description": "bridge, host, none 网络",
-            "exercise": "配置两个容器间的网络通信"
-          }
-        ],
-        "extended": [
-          {
-            "name": "多阶段构建",
-            "description": "减小镜像体积"
-          },
-          {
-            "name": "Docker Compose",
-            "description": "多容器编排"
-          },
-          {
-            "name": "Docker 安全",
-            "description": "非 root 用户运行、镜像扫描"
-          }
-        ]
-      },
       "resources": []
     },
     {
       "id": "react-basics",
       "title": "React 基础",
       "difficulty": "beginner",
-      "prerequisites": [
-        "javascript-fundamentals"
-      ],
-      "knowledge_points": {
-        "core": [
-          {
-            "name": "组件与 JSX",
-            "description": "函数组件、JSX 语法",
-            "exercise": "创建一个 TodoList 组件"
-          },
-          {
-            "name": "Props",
-            "description": "父子组件数据传递",
-            "exercise": "实现可复用的按钮组件"
-          },
-          {
-            "name": "useState",
-            "description": "状态管理 Hook",
-            "exercise": "实现计数器组件"
-          }
-        ],
-        "important": [
-          {
-            "name": "useEffect",
-            "description": "副作用管理",
-            "exercise": "在组件中调用 API 获取数据"
-          },
-          {
-            "name": "条件渲染",
-            "description": "三元运算符和逻辑与",
-            "exercise": "实现加载状态和错误状态"
-          }
-        ],
-        "extended": [
-          {
-            "name": "useContext",
-            "description": "跨组件状态共享"
-          },
-          {
-            "name": "useReducer",
-            "description": "复杂状态管理"
-          },
-          {
-            "name": "React.memo",
-            "description": "性能优化"
-          }
-        ]
-      },
+      "prerequisites": ["javascript-fundamentals"],
       "resources": []
     },
     {
@@ -305,46 +47,6 @@
       "title": "SQL 基础",
       "difficulty": "beginner",
       "prerequisites": [],
-      "knowledge_points": {
-        "core": [
-          {
-            "name": "SELECT 查询",
-            "description": "基本查询、WHERE 条件、ORDER BY",
-            "exercise": "查询满足条件的数据记录"
-          },
-          {
-            "name": "INSERT/UPDATE/DELETE",
-            "description": "数据的增删改",
-            "exercise": "完成一组数据操作"
-          }
-        ],
-        "important": [
-          {
-            "name": "JOIN",
-            "description": "INNER, LEFT, RIGHT, FULL JOIN",
-            "exercise": "编写多表关联查询"
-          },
-          {
-            "name": "聚合函数",
-            "description": "COUNT, SUM, AVG, GROUP BY",
-            "exercise": "编写统计报表查询"
-          }
-        ],
-        "extended": [
-          {
-            "name": "子查询",
-            "description": "嵌套查询"
-          },
-          {
-            "name": "窗口函数",
-            "description": "ROW_NUMBER, RANK"
-          },
-          {
-            "name": "索引优化",
-            "description": "索引原理和使用场景"
-          }
-        ]
-      },
       "resources": []
     },
     {
@@ -352,100 +54,13 @@
       "title": "JavaScript 基础",
       "difficulty": "beginner",
       "prerequisites": [],
-      "knowledge_points": {
-        "core": [
-          {
-            "name": "变量与作用域",
-            "description": "var, let, const 和块级作用域",
-            "exercise": "编写作用域测试代码"
-          },
-          {
-            "name": "函数",
-            "description": "声明、表达式、箭头函数",
-            "exercise": "实现一组工具函数"
-          },
-          {
-            "name": "数组操作",
-            "description": "map, filter, reduce",
-            "exercise": "用数组方法处理数据"
-          }
-        ],
-        "important": [
-          {
-            "name": "Promise",
-            "description": "异步编程基础",
-            "exercise": "用 Promise 封装异步操作"
-          },
-          {
-            "name": "DOM 操作",
-            "description": "getElementById, querySelector",
-            "exercise": "实现一个 DOM 操作练习"
-          }
-        ],
-        "extended": [
-          {
-            "name": "原型链",
-            "description": "JavaScript 继承机制"
-          },
-          {
-            "name": "Event Loop",
-            "description": "事件循环和微任务"
-          },
-          {
-            "name": "模块化",
-            "description": "ES Module 和 CommonJS"
-          }
-        ]
-      },
       "resources": []
     },
     {
       "id": "transformer-arch",
       "title": "Transformer 架构原理",
       "difficulty": "advanced",
-      "prerequisites": [
-        "python-fundamentals"
-      ],
-      "knowledge_points": {
-        "core": [
-          {
-            "name": "Self-Attention 机制",
-            "description": "Q/K/V 矩阵计算",
-            "exercise": "手动计算注意力权重"
-          },
-          {
-            "name": "多头注意力",
-            "description": "Multi-Head Attention",
-            "exercise": "实现简化版多头注意力"
-          }
-        ],
-        "important": [
-          {
-            "name": "位置编码",
-            "description": "正弦位置编码",
-            "exercise": "可视化位置编码"
-          },
-          {
-            "name": "编码器-解码器架构",
-            "description": "Encoder-Decoder 结构",
-            "exercise": "绘制 Transformer 架构图"
-          }
-        ],
-        "extended": [
-          {
-            "name": "Flash Attention",
-            "description": "高效注意力计算"
-          },
-          {
-            "name": "RoPE 旋转位置编码",
-            "description": "现代位置编码方案"
-          },
-          {
-            "name": "KV Cache",
-            "description": "推理加速技术"
-          }
-        ]
-      },
+      "prerequisites": ["python-fundamentals"],
       "resources": []
     },
     {
@@ -453,144 +68,881 @@
       "title": "高级 Prompt 工程",
       "difficulty": "intermediate",
       "prerequisites": [],
-      "knowledge_points": {
-        "core": [
-          {
-            "name": "Prompt 基本结构",
-            "description": "角色、任务、约束、示例",
-            "exercise": "编写一个结构化 Prompt"
-          },
-          {
-            "name": "Zero-shot vs Few-shot",
-            "description": "零样本和少样本提示",
-            "exercise": "对比两种提示效果"
-          }
-        ],
-        "important": [
-          {
-            "name": "Chain of Thought",
-            "description": "思维链提示",
-            "exercise": "设计 CoT 提示解决数学问题"
-          },
-          {
-            "name": "输出格式控制",
-            "description": "JSON/Markdown 格式约束",
-            "exercise": "要求模型输出结构化 JSON"
-          }
-        ],
-        "extended": [
-          {
-            "name": "ReAct 模式",
-            "description": "推理+行动的提示模式"
-          },
-          {
-            "name": "Prompt 优化",
-            "description": "迭代优化技巧"
-          },
-          {
-            "name": "System Prompt 设计",
-            "description": "系统提示最佳实践"
-          }
-        ]
-      },
       "resources": []
     },
     {
       "id": "linear-regression",
       "title": "线性回归",
       "difficulty": "intermediate",
-      "prerequisites": [
-        "python-fundamentals"
-      ],
-      "knowledge_points": {
-        "core": [
-          {
-            "name": "一元线性回归",
-            "description": "最小二乘法原理",
-            "exercise": "用 Python 实现一元线性回归"
-          },
-          {
-            "name": "损失函数",
-            "description": "MSE 损失",
-            "exercise": "手写 MSE 计算函数"
-          }
-        ],
-        "important": [
-          {
-            "name": "多元线性回归",
-            "description": "多特征建模",
-            "exercise": "用 sklearn 实现多元回归"
-          },
-          {
-            "name": "模型评估",
-            "description": "R²、MAE、RMSE",
-            "exercise": "评估回归模型性能"
-          }
-        ],
-        "extended": [
-          {
-            "name": "正则化",
-            "description": "Ridge/Lasso 回归"
-          },
-          {
-            "name": "梯度下降",
-            "description": "批量/随机/小批量梯度下降"
-          },
-          {
-            "name": "特征多项式",
-            "description": "多项式回归"
-          }
-        ]
-      },
+      "prerequisites": ["python-fundamentals"],
       "resources": []
     },
     {
       "id": "kubernetes-basics",
       "title": "Kubernetes 基础",
       "difficulty": "intermediate",
-      "prerequisites": [
-        "docker-fundamentals"
-      ],
-      "knowledge_points": {
-        "core": [
-          {
-            "name": "Pod 概念",
-            "description": "最小调度单元",
-            "exercise": "创建一个 Nginx Pod"
-          },
-          {
-            "name": "Deployment",
-            "description": "声明式部署管理",
-            "exercise": "部署一个多副本应用"
-          }
-        ],
-        "important": [
-          {
-            "name": "Service",
-            "description": "ClusterIP, NodePort, LoadBalancer",
-            "exercise": "为应用创建 Service"
-          },
-          {
-            "name": "ConfigMap/Secret",
-            "description": "配置和敏感信息管理",
-            "exercise": "使用 ConfigMap 注入配置"
-          }
-        ],
-        "extended": [
-          {
-            "name": "Ingress",
-            "description": "HTTP 路由管理"
-          },
-          {
-            "name": "Helm",
-            "description": "包管理工具"
-          },
-          {
-            "name": "HPA",
-            "description": "水平自动扩缩容"
-          }
-        ]
-      },
+      "prerequisites": ["docker-fundamentals"],
+      "resources": []
+    },
+    {
+      "id": "vue-basics",
+      "title": "Vue 基础",
+      "difficulty": "beginner",
+      "prerequisites": ["javascript-fundamentals"],
+      "resources": []
+    },
+    {
+      "id": "angular-basics",
+      "title": "Angular 基础",
+      "difficulty": "intermediate",
+      "prerequisites": ["javascript-fundamentals", "typescript-basics"],
+      "resources": []
+    },
+    {
+      "id": "tailwind-css",
+      "title": "Tailwind CSS",
+      "difficulty": "beginner",
+      "prerequisites": ["html-css-basics"],
+      "resources": []
+    },
+    {
+      "id": "sass-basics",
+      "title": "Sass 基础",
+      "difficulty": "beginner",
+      "prerequisites": ["html-css-basics"],
+      "resources": []
+    },
+    {
+      "id": "css-in-js",
+      "title": "CSS-in-JS",
+      "difficulty": "intermediate",
+      "prerequisites": ["javascript-fundamentals", "react-basics"],
+      "resources": []
+    },
+    {
+      "id": "vite-basics",
+      "title": "Vite 基础",
+      "difficulty": "beginner",
+      "prerequisites": ["javascript-fundamentals"],
+      "resources": []
+    },
+    {
+      "id": "webpack-basics",
+      "title": "Webpack 基础",
+      "difficulty": "intermediate",
+      "prerequisites": ["javascript-fundamentals"],
+      "resources": []
+    },
+    {
+      "id": "web-perf-basics",
+      "title": "Web 性能优化",
+      "difficulty": "intermediate",
+      "prerequisites": ["html-css-basics", "javascript-fundamentals"],
+      "resources": []
+    },
+    {
+      "id": "jest-testing",
+      "title": "Jest 单元测试",
+      "difficulty": "beginner",
+      "prerequisites": ["javascript-fundamentals"],
+      "resources": []
+    },
+    {
+      "id": "cypress-e2e",
+      "title": "Cypress 端到端测试",
+      "difficulty": "intermediate",
+      "prerequisites": ["javascript-fundamentals"],
+      "resources": []
+    },
+    {
+      "id": "web-a11y",
+      "title": "Web 无障碍与 SEO",
+      "difficulty": "beginner",
+      "prerequisites": ["html-css-basics"],
+      "resources": []
+    },
+    {
+      "id": "jwt-auth",
+      "title": "JWT 认证",
+      "difficulty": "intermediate",
+      "prerequisites": ["javascript-fundamentals"],
+      "resources": []
+    },
+    {
+      "id": "oauth-basics",
+      "title": "OAuth 2.0 基础",
+      "difficulty": "intermediate",
+      "prerequisites": ["jwt-auth"],
+      "resources": []
+    },
+    {
+      "id": "microservices-basics",
+      "title": "微服务架构基础",
+      "difficulty": "advanced",
+      "prerequisites": ["rest-api-basics", "docker-fundamentals"],
+      "resources": []
+    },
+    {
+      "id": "kafka-basics",
+      "title": "Kafka 基础",
+      "difficulty": "intermediate",
+      "prerequisites": ["python-fundamentals"],
+      "resources": []
+    },
+    {
+      "id": "rabbitmq-basics",
+      "title": "RabbitMQ 基础",
+      "difficulty": "intermediate",
+      "prerequisites": ["python-fundamentals"],
+      "resources": []
+    },
+    {
+      "id": "backend-perf",
+      "title": "后端性能优化",
+      "difficulty": "intermediate",
+      "prerequisites": ["python-fundamentals", "sql-fundamentals"],
+      "resources": []
+    },
+    {
+      "id": "serverless-basics",
+      "title": "Serverless 基础",
+      "difficulty": "intermediate",
+      "prerequisites": ["docker-fundamentals"],
+      "resources": []
+    },
+    {
+      "id": "typescript-basics",
+      "title": "TypeScript 基础",
+      "difficulty": "beginner",
+      "prerequisites": ["javascript-fundamentals"],
+      "resources": []
+    },
+    {
+      "id": "java-basics",
+      "title": "Java 基础",
+      "difficulty": "beginner",
+      "prerequisites": [],
+      "resources": []
+    },
+    {
+      "id": "go-basics",
+      "title": "Go 基础",
+      "difficulty": "beginner",
+      "prerequisites": [],
+      "resources": []
+    },
+    {
+      "id": "rust-basics",
+      "title": "Rust 基础",
+      "difficulty": "intermediate",
+      "prerequisites": [],
+      "resources": []
+    },
+    {
+      "id": "cpp-basics",
+      "title": "C++ 基础",
+      "difficulty": "intermediate",
+      "prerequisites": [],
+      "resources": []
+    },
+    {
+      "id": "csharp-basics",
+      "title": "C# 基础",
+      "difficulty": "beginner",
+      "prerequisites": [],
+      "resources": []
+    },
+    {
+      "id": "swift-basics",
+      "title": "Swift 基础",
+      "difficulty": "beginner",
+      "prerequisites": [],
+      "resources": []
+    },
+    {
+      "id": "kotlin-basics",
+      "title": "Kotlin 基础",
+      "difficulty": "beginner",
+      "prerequisites": ["java-basics"],
+      "resources": []
+    },
+    {
+      "id": "shell-scripting",
+      "title": "Shell 脚本编程",
+      "difficulty": "beginner",
+      "prerequisites": [],
+      "resources": []
+    },
+    {
+      "id": "vscode-mastery",
+      "title": "VS Code 精通",
+      "difficulty": "beginner",
+      "prerequisites": [],
+      "resources": []
+    },
+    {
+      "id": "debugging-techniques",
+      "title": "调试技术",
+      "difficulty": "intermediate",
+      "prerequisites": ["python-fundamentals"],
+      "resources": []
+    },
+    {
+      "id": "npm-package",
+      "title": "NPM 包管理",
+      "difficulty": "beginner",
+      "prerequisites": ["javascript-fundamentals"],
+      "resources": []
+    },
+    {
+      "id": "api-testing",
+      "title": "API 测试",
+      "difficulty": "beginner",
+      "prerequisites": ["rest-api-basics"],
+      "resources": []
+    },
+    {
+      "id": "db-management",
+      "title": "数据库管理工具",
+      "difficulty": "beginner",
+      "prerequisites": ["sql-fundamentals"],
+      "resources": []
+    },
+    {
+      "id": "dev-collaboration",
+      "title": "开发协作工具",
+      "difficulty": "beginner",
+      "prerequisites": ["git-fundamentals"],
+      "resources": []
+    },
+    {
+      "id": "android-basics",
+      "title": "Android 开发基础",
+      "difficulty": "intermediate",
+      "prerequisites": ["kotlin-basics"],
+      "resources": []
+    },
+    {
+      "id": "ios-basics",
+      "title": "iOS 开发基础",
+      "difficulty": "intermediate",
+      "prerequisites": ["swift-basics"],
+      "resources": []
+    },
+    {
+      "id": "react-native-basics",
+      "title": "React Native 基础",
+      "difficulty": "intermediate",
+      "prerequisites": ["react-basics"],
+      "resources": []
+    },
+    {
+      "id": "flutter-basics",
+      "title": "Flutter 基础",
+      "difficulty": "intermediate",
+      "prerequisites": ["dart-basics"],
+      "resources": []
+    },
+    {
+      "id": "dart-basics",
+      "title": "Dart 基础",
+      "difficulty": "beginner",
+      "prerequisites": [],
+      "resources": []
+    },
+    {
+      "id": "mobile-architecture",
+      "title": "移动端架构设计",
+      "difficulty": "advanced",
+      "prerequisites": ["android-basics", "ios-basics"],
+      "resources": []
+    },
+    {
+      "id": "mobile-offline-storage",
+      "title": "移动端离线存储",
+      "difficulty": "intermediate",
+      "prerequisites": ["android-basics"],
+      "resources": []
+    },
+    {
+      "id": "mobile-publishing",
+      "title": "移动应用发布",
+      "difficulty": "intermediate",
+      "prerequisites": ["android-basics", "ios-basics"],
+      "resources": []
+    },
+    {
+      "id": "association-rules",
+      "title": "关联规则挖掘",
+      "difficulty": "intermediate",
+      "prerequisites": ["python-fundamentals"],
+      "resources": []
+    },
+    {
+      "id": "clustering-analysis",
+      "title": "聚类分析",
+      "difficulty": "intermediate",
+      "prerequisites": ["python-fundamentals"],
+      "resources": []
+    },
+    {
+      "id": "anomaly-detection",
+      "title": "异常检测",
+      "difficulty": "intermediate",
+      "prerequisites": ["python-fundamentals"],
+      "resources": []
+    },
+    {
+      "id": "recommender-systems",
+      "title": "推荐系统",
+      "difficulty": "intermediate",
+      "prerequisites": ["python-fundamentals", "linear-regression"],
+      "resources": []
+    },
+    {
+      "id": "feature-engineering",
+      "title": "特征工程",
+      "difficulty": "intermediate",
+      "prerequisites": ["python-fundamentals"],
+      "resources": []
+    },
+    {
+      "id": "text-mining",
+      "title": "文本挖掘",
+      "difficulty": "intermediate",
+      "prerequisites": ["python-fundamentals"],
+      "resources": []
+    },
+    {
+      "id": "agent-architecture",
+      "title": "Agent 架构设计",
+      "difficulty": "intermediate",
+      "prerequisites": ["python-fundamentals", "prompt-engineering-advanced"],
+      "resources": []
+    },
+    {
+      "id": "tool-calling",
+      "title": "工具调用",
+      "difficulty": "intermediate",
+      "prerequisites": ["agent-architecture"],
+      "resources": []
+    },
+    {
+      "id": "agent-memory",
+      "title": "Agent 记忆系统",
+      "difficulty": "intermediate",
+      "prerequisites": ["agent-architecture"],
+      "resources": []
+    },
+    {
+      "id": "agent-planning",
+      "title": "规划与推理",
+      "difficulty": "advanced",
+      "prerequisites": ["agent-architecture"],
+      "resources": []
+    },
+    {
+      "id": "multi-agent",
+      "title": "多智能体协作",
+      "difficulty": "advanced",
+      "prerequisites": ["agent-architecture"],
+      "resources": []
+    },
+    {
+      "id": "langchain-basics",
+      "title": "LangChain 基础",
+      "difficulty": "intermediate",
+      "prerequisites": ["python-fundamentals", "transformer-arch"],
+      "resources": []
+    },
+    {
+      "id": "mcp-protocol",
+      "title": "MCP 协议与集成",
+      "difficulty": "intermediate",
+      "prerequisites": ["agent-architecture"],
+      "resources": []
+    },
+    {
+      "id": "ai-skills-dev",
+      "title": "AI Skills 开发",
+      "difficulty": "intermediate",
+      "prerequisites": ["agent-architecture"],
+      "resources": []
+    },
+    {
+      "id": "agent-evaluation",
+      "title": "Agent 评估与安全",
+      "difficulty": "intermediate",
+      "prerequisites": ["agent-architecture"],
+      "resources": []
+    },
+    {
+      "id": "agent-app-dev",
+      "title": "Agent 应用开发",
+      "difficulty": "intermediate",
+      "prerequisites": ["agent-architecture", "tool-calling"],
+      "resources": []
+    },
+    {
+      "id": "rag-basics",
+      "title": "RAG 检索增强生成",
+      "difficulty": "intermediate",
+      "prerequisites": ["python-fundamentals", "transformer-arch"],
+      "resources": []
+    },
+    {
+      "id": "llm-finetuning",
+      "title": "LLM 微调技术",
+      "difficulty": "advanced",
+      "prerequisites": ["transformer-arch", "python-fundamentals"],
+      "resources": []
+    },
+    {
+      "id": "llm-deployment",
+      "title": "LLM 部署与推理优化",
+      "difficulty": "advanced",
+      "prerequisites": ["transformer-arch", "docker-fundamentals"],
+      "resources": []
+    },
+    {
+      "id": "llm-evaluation",
+      "title": "LLM 评测系统",
+      "difficulty": "intermediate",
+      "prerequisites": ["transformer-arch"],
+      "resources": []
+    },
+    {
+      "id": "llm-data-processing",
+      "title": "LLM 数据处理",
+      "difficulty": "intermediate",
+      "prerequisites": ["python-fundamentals"],
+      "resources": []
+    },
+    {
+      "id": "llm-memory-systems",
+      "title": "LLM 记忆系统",
+      "difficulty": "intermediate",
+      "prerequisites": ["rag-basics"],
+      "resources": []
+    },
+    {
+      "id": "llm-security",
+      "title": "LLM 安全与合规",
+      "difficulty": "intermediate",
+      "prerequisites": ["transformer-arch"],
+      "resources": []
+    },
+    {
+      "id": "clustering-basics",
+      "title": "聚类算法基础",
+      "difficulty": "intermediate",
+      "prerequisites": ["python-fundamentals"],
+      "resources": []
+    },
+    {
+      "id": "deep-learning-basics",
+      "title": "深度学习基础",
+      "difficulty": "intermediate",
+      "prerequisites": ["python-fundamentals", "linear-regression"],
+      "resources": []
+    },
+    {
+      "id": "reinforcement-learning",
+      "title": "强化学习基础",
+      "difficulty": "advanced",
+      "prerequisites": ["python-fundamentals", "linear-regression"],
+      "resources": []
+    },
+    {
+      "id": "mlops-basics",
+      "title": "MLOps 基础",
+      "difficulty": "intermediate",
+      "prerequisites": ["python-fundamentals", "docker-fundamentals"],
+      "resources": []
+    },
+    {
+      "id": "ml-ethics",
+      "title": "机器学习伦理",
+      "difficulty": "beginner",
+      "prerequisites": [],
+      "resources": []
+    },
+    {
+      "id": "cloud-platforms",
+      "title": "云平台基础",
+      "difficulty": "beginner",
+      "prerequisites": [],
+      "resources": []
+    },
+    {
+      "id": "terraform-basics",
+      "title": "Terraform 基础",
+      "difficulty": "intermediate",
+      "prerequisites": ["cloud-platforms"],
+      "resources": []
+    },
+    {
+      "id": "network-architecture",
+      "title": "网络架构设计",
+      "difficulty": "intermediate",
+      "prerequisites": [],
+      "resources": []
+    },
+    {
+      "id": "observability-basics",
+      "title": "可观测性基础",
+      "difficulty": "intermediate",
+      "prerequisites": ["docker-fundamentals"],
+      "resources": []
+    },
+    {
+      "id": "sre-basics",
+      "title": "SRE 工程基础",
+      "difficulty": "intermediate",
+      "prerequisites": ["kubernetes-basics"],
+      "resources": []
+    },
+    {
+      "id": "hadoop-basics",
+      "title": "Hadoop 基础",
+      "difficulty": "intermediate",
+      "prerequisites": ["python-fundamentals"],
+      "resources": []
+    },
+    {
+      "id": "spark-basics",
+      "title": "Spark 基础",
+      "difficulty": "intermediate",
+      "prerequisites": ["python-fundamentals"],
+      "resources": []
+    },
+    {
+      "id": "stream-processing",
+      "title": "流处理基础",
+      "difficulty": "intermediate",
+      "prerequisites": ["python-fundamentals"],
+      "resources": []
+    },
+    {
+      "id": "data-warehouse",
+      "title": "数据仓库",
+      "difficulty": "intermediate",
+      "prerequisites": ["sql-fundamentals"],
+      "resources": []
+    },
+    {
+      "id": "etl-engineering",
+      "title": "ETL 工程",
+      "difficulty": "intermediate",
+      "prerequisites": ["python-fundamentals", "sql-fundamentals"],
+      "resources": []
+    },
+    {
+      "id": "cloud-bigdata",
+      "title": "云大数据服务",
+      "difficulty": "intermediate",
+      "prerequisites": ["cloud-platforms"],
+      "resources": []
+    },
+    {
+      "id": "opencv-basics",
+      "title": "OpenCV 基础",
+      "difficulty": "intermediate",
+      "prerequisites": ["python-fundamentals"],
+      "resources": []
+    },
+    {
+      "id": "cnn-basics",
+      "title": "CNN 卷积神经网络",
+      "difficulty": "intermediate",
+      "prerequisites": ["deep-learning-basics"],
+      "resources": []
+    },
+    {
+      "id": "object-detection",
+      "title": "目标检测",
+      "difficulty": "intermediate",
+      "prerequisites": ["cnn-basics"],
+      "resources": []
+    },
+    {
+      "id": "image-generation",
+      "title": "图像生成",
+      "difficulty": "advanced",
+      "prerequisites": ["deep-learning-basics"],
+      "resources": []
+    },
+    {
+      "id": "video-understanding",
+      "title": "视频理解",
+      "difficulty": "advanced",
+      "prerequisites": ["cnn-basics"],
+      "resources": []
+    },
+    {
+      "id": "3d-vision",
+      "title": "3D 视觉",
+      "difficulty": "advanced",
+      "prerequisites": ["opencv-basics"],
+      "resources": []
+    },
+    {
+      "id": "system-monitoring",
+      "title": "系统监控",
+      "difficulty": "intermediate",
+      "prerequisites": ["linux-admin"],
+      "resources": []
+    },
+    {
+      "id": "log-management",
+      "title": "日志管理",
+      "difficulty": "intermediate",
+      "prerequisites": ["linux-admin"],
+      "resources": []
+    },
+    {
+      "id": "cicd-basics",
+      "title": "CI/CD 基础",
+      "difficulty": "intermediate",
+      "prerequisites": ["git-fundamentals", "docker-fundamentals"],
+      "resources": []
+    },
+    {
+      "id": "config-management",
+      "title": "配置管理",
+      "difficulty": "intermediate",
+      "prerequisites": ["linux-admin"],
+      "resources": []
+    },
+    {
+      "id": "disaster-recovery",
+      "title": "灾备与恢复",
+      "difficulty": "intermediate",
+      "prerequisites": ["linux-admin"],
+      "resources": []
+    },
+    {
+      "id": "linux-admin",
+      "title": "Linux 系统管理",
+      "difficulty": "intermediate",
+      "prerequisites": [],
+      "resources": []
+    },
+    {
+      "id": "data-structures",
+      "title": "数据结构",
+      "difficulty": "beginner",
+      "prerequisites": [],
+      "resources": []
+    },
+    {
+      "id": "sorting-searching",
+      "title": "排序与搜索算法",
+      "difficulty": "beginner",
+      "prerequisites": ["data-structures"],
+      "resources": []
+    },
+    {
+      "id": "dynamic-programming",
+      "title": "动态规划",
+      "difficulty": "intermediate",
+      "prerequisites": ["data-structures"],
+      "resources": []
+    },
+    {
+      "id": "graph-algorithms",
+      "title": "图算法",
+      "difficulty": "intermediate",
+      "prerequisites": ["data-structures"],
+      "resources": []
+    },
+    {
+      "id": "complexity-analysis",
+      "title": "复杂度分析",
+      "difficulty": "beginner",
+      "prerequisites": [],
+      "resources": []
+    },
+    {
+      "id": "algorithm-math",
+      "title": "算法数学基础",
+      "difficulty": "intermediate",
+      "prerequisites": [],
+      "resources": []
+    },
+    {
+      "id": "string-algorithms",
+      "title": "字符串算法",
+      "difficulty": "intermediate",
+      "prerequisites": ["data-structures"],
+      "resources": []
+    },
+    {
+      "id": "unit-testing",
+      "title": "单元测试",
+      "difficulty": "beginner",
+      "prerequisites": ["python-fundamentals"],
+      "resources": []
+    },
+    {
+      "id": "integration-testing",
+      "title": "集成测试",
+      "difficulty": "intermediate",
+      "prerequisites": ["unit-testing"],
+      "resources": []
+    },
+    {
+      "id": "e2e-testing",
+      "title": "端到端测试",
+      "difficulty": "intermediate",
+      "prerequisites": ["integration-testing"],
+      "resources": []
+    },
+    {
+      "id": "performance-testing",
+      "title": "性能测试",
+      "difficulty": "intermediate",
+      "prerequisites": ["unit-testing"],
+      "resources": []
+    },
+    {
+      "id": "tdd-bdd",
+      "title": "TDD/BDD 测试驱动开发",
+      "difficulty": "intermediate",
+      "prerequisites": ["unit-testing"],
+      "resources": []
+    },
+    {
+      "id": "security-testing",
+      "title": "安全测试",
+      "difficulty": "intermediate",
+      "prerequisites": ["unit-testing"],
+      "resources": []
+    },
+    {
+      "id": "test-automation",
+      "title": "测试自动化",
+      "difficulty": "intermediate",
+      "prerequisites": ["unit-testing", "cicd-basics"],
+      "resources": []
+    },
+    {
+      "id": "nlp-traditional",
+      "title": "传统 NLP 技术",
+      "difficulty": "intermediate",
+      "prerequisites": ["python-fundamentals"],
+      "resources": []
+    },
+    {
+      "id": "llm-basics",
+      "title": "大语言模型基础",
+      "difficulty": "intermediate",
+      "prerequisites": ["transformer-arch"],
+      "resources": []
+    },
+    {
+      "id": "nlp-applications",
+      "title": "NLP 应用开发",
+      "difficulty": "intermediate",
+      "prerequisites": ["nlp-traditional"],
+      "resources": []
+    },
+    {
+      "id": "multimodal-learning",
+      "title": "多模态学习",
+      "difficulty": "advanced",
+      "prerequisites": ["transformer-arch"],
+      "resources": []
+    },
+    {
+      "id": "nlp-alignment",
+      "title": "NLP 评估与对齐",
+      "difficulty": "intermediate",
+      "prerequisites": ["transformer-arch"],
+      "resources": []
+    },
+    {
+      "id": "network-security",
+      "title": "网络安全",
+      "difficulty": "intermediate",
+      "prerequisites": [],
+      "resources": []
+    },
+    {
+      "id": "cryptography",
+      "title": "密码学基础",
+      "difficulty": "intermediate",
+      "prerequisites": [],
+      "resources": []
+    },
+    {
+      "id": "app-security",
+      "title": "应用安全",
+      "difficulty": "intermediate",
+      "prerequisites": ["python-fundamentals"],
+      "resources": []
+    },
+    {
+      "id": "cloud-security",
+      "title": "云安全",
+      "difficulty": "intermediate",
+      "prerequisites": ["cloud-platforms"],
+      "resources": []
+    },
+    {
+      "id": "security-compliance",
+      "title": "安全合规",
+      "difficulty": "intermediate",
+      "prerequisites": [],
+      "resources": []
+    },
+    {
+      "id": "digital-forensics",
+      "title": "数字取证",
+      "difficulty": "advanced",
+      "prerequisites": ["network-security"],
+      "resources": []
+    },
+    {
+      "id": "audio-processing",
+      "title": "音频处理",
+      "difficulty": "intermediate",
+      "prerequisites": ["python-fundamentals"],
+      "resources": []
+    },
+    {
+      "id": "video-processing",
+      "title": "视频处理",
+      "difficulty": "intermediate",
+      "prerequisites": ["python-fundamentals"],
+      "resources": []
+    },
+    {
+      "id": "streaming-media",
+      "title": "流媒体技术",
+      "difficulty": "intermediate",
+      "prerequisites": ["video-processing"],
+      "resources": []
+    },
+    {
+      "id": "image-processing",
+      "title": "图像处理",
+      "difficulty": "intermediate",
+      "prerequisites": ["python-fundamentals"],
+      "resources": []
+    },
+    {
+      "id": "computer-graphics",
+      "title": "计算机图形学",
+      "difficulty": "advanced",
+      "prerequisites": ["cpp-basics"],
+      "resources": []
+    },
+    {
+      "id": "ar-vr-basics",
+      "title": "AR/VR 基础",
+      "difficulty": "advanced",
+      "prerequisites": ["computer-graphics"],
       "resources": []
     }
   ]

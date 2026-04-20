@@ -15,7 +15,6 @@ const SORTS = [
   { value: "", label: "默认排序" },
   { value: "title", label: "按名称" },
   { value: "difficulty", label: "按难度" },
-  { value: "hours", label: "按时长" },
 ]
 
 export function CourseList() {

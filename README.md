@@ -13,6 +13,28 @@ CS-Stack 是一个基于 ACM/IEEE CS2023 标准的计算机科学学习路径平
 - 🏆 **激励机制** — 经验值、成就徽章、连续打卡
 - 🤖 **AI 管理后台** — Admin 通过 AI API 持续发现并添加新课程
 
+## 📸 功能截图
+
+### 我的学习计划
+
+![我的学习计划](images/my%20plan.png)
+
+### 学习方向
+
+![学习方向](images/direction.png)
+
+### 课程详情
+
+![课程详情](images/course.png)
+
+### 仪表盘
+
+![仪表盘](images/dashboard.png)
+
+### 管理后台
+
+![管理后台](images/admin.png)
+
 ## 🏗️ 技术架构
 
 ```

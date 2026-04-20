@@ -87,7 +87,6 @@ export function Progress() {
                     <Link to={`/courses/${courseId}`} className="font-medium text-gray-900 hover:text-blue-600">
                       {courseId}
                     </Link>
-                    <p className="mt-1 text-xs text-gray-400">知识点 {p.completed_knowledge.length} 已掌握</p>
                   </div>
                   <span className={`text-sm font-medium ${STATUS_COLORS[p.status]}`}>
                     {STATUS_LABELS[p.status]}

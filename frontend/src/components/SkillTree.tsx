@@ -1,15 +1,12 @@
 import { useState, useEffect } from "react"
 import { Link } from "react-router-dom"
-import { BookOpen } from "lucide-react"
+import { BookOpen, Plus, Check, Shield } from "lucide-react"
 import { api } from "../api/client"
 
 interface CourseNode {
   id: string
   title: string
   difficulty: string
-  core_kp: number
-  important_kp: number
-  extended_kp: number
   prerequisites: string[]
 }
 
@@ -17,7 +14,6 @@ interface SubNode {
   id: string
   name: string
   courses: CourseNode[]
-  total_kp: number
 }
 
 interface SkillTreeData {
@@ -38,22 +34,62 @@ const DIFFICULTY_LABELS: Record<string, string> = {
   advanced: "高级",
 }
 
-export function SkillTree({ directionId }: { directionId: string }) {
+interface SkillTreeProps {
+  directionId: string
+  directionInPlan?: boolean
+  onToggleDirectionPlan?: () => void
+}
+
+export function SkillTree({ directionId, directionInPlan = false, onToggleDirectionPlan }: SkillTreeProps) {
   const [data, setData] = useState<SkillTreeData | null>(null)
   const [loading, setLoading] = useState(true)
+  const [standaloneCourses, setStandaloneCourses] = useState<Set<string>>(new Set())
 
   useEffect(() => {
-    api
-      .get(`/api/skilltree/${directionId}`)
-      .then((res) => setData(res.data))
+    Promise.all([
+      api.get(`/api/skilltree/${directionId}`),
+      api.get("/api/studyplan/me"),
+    ])
+      .then(([treeRes, planRes]) => {
+        setData(treeRes.data)
+        const plan = planRes.data
+        const courseIds = new Set<string>()
+        if (treeRes.data?.nodes) {
+          treeRes.data.nodes.forEach((node: SubNode) => {
+            node.courses.forEach((course: CourseNode) => {
+              if (plan.standalone_courses?.some((c: any) => c.id === course.id)) {
+                courseIds.add(course.id)
+              }
+            })
+          })
+        }
+        setStandaloneCourses(courseIds)
+      })
       .finally(() => setLoading(false))
   }, [directionId])
+
+  const toggleCoursePlan = (courseId: string) => {
+    const isAdded = standaloneCourses.has(courseId)
+    const method = isAdded ? "delete" : "post"
+    api[method](`/api/studyplan/me/course/${courseId}`)
+      .then(() => {
+        if (isAdded) {
+          setStandaloneCourses((prev) => {
+            const next = new Set(prev)
+            next.delete(courseId)
+            return next
+          })
+        } else {
+          setStandaloneCourses((prev) => new Set([...prev, courseId]))
+        }
+      })
+  }
 
   if (loading || !data) return null
 
   return (
     <div className="rounded-xl border bg-white p-6">
-      <h2 className="mb-4 text-lg font-semibold">{data.direction_name} — 技能树</h2>
+      <h2 className="mb-4 text-lg font-semibold">{data.direction_name} - 技能树</h2>
       
       <div className="space-y-6">
         {data.nodes.map((node, idx) => (
@@ -66,25 +102,63 @@ export function SkillTree({ directionId }: { directionId: string }) {
                 {idx + 1}
               </div>
               <h3 className="font-medium text-gray-800">{node.name}</h3>
-              <span className="text-xs text-gray-400">{node.total_kp} 知识点</span>
             </div>
             
             <div className="mt-3 ml-11 grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
-              {node.courses.map((course) => (
-                <Link
-                  key={course.id}
-                  to={`/courses/${course.id}`}
-                  className={`rounded-lg border p-3 text-sm transition hover:shadow-sm ${DIFFICULTY_COLORS[course.difficulty]}`}
-                >
-                  <div className="flex items-center gap-2">
-                    <BookOpen className="h-4 w-4" />
-                    <span className="font-medium">{course.title}</span>
+              {node.courses.map((course) => {
+                const isInherited = directionInPlan
+                const isStandalone = standaloneCourses.has(course.id)
+                const isInPlan = isInherited || isStandalone
+
+                return (
+                  <div
+                    key={course.id}
+                    className={`rounded-lg border p-3 text-sm transition hover:shadow-sm ${DIFFICULTY_COLORS[course.difficulty]}`}
+                  >
+                    <div className="flex items-center justify-between gap-2">
+                      <Link
+                        to={`/courses/${course.id}`}
+                        className="flex items-center gap-2 hover:opacity-80"
+                      >
+                        <BookOpen className="h-4 w-4 flex-shrink-0" />
+                        <span className="font-medium truncate">{course.title}</span>
+                      </Link>
+                    </div>
+                    <div className="mt-2 flex items-center justify-between">
+                      <span className="text-xs opacity-75">
+                        {DIFFICULTY_LABELS[course.difficulty] || course.difficulty}
+                      </span>
+                      <div className="flex items-center gap-1">
+                        {isInherited && (
+                          <span className="text-xs text-green-600" title="随方向加入计划">
+                            <Shield className="h-3.5 w-3.5" />
+                          </span>
+                        )}
+                        <button
+                          onClick={() => !isInherited && toggleCoursePlan(course.id)}
+                          disabled={isInherited}
+                          className={`rounded p-1 text-xs transition ${
+                            isInherited
+                              ? "cursor-not-allowed text-green-600"
+                              : isStandalone
+                                ? "text-green-600 hover:bg-green-200"
+                                : "opacity-60 hover:opacity-100 hover:bg-white/50"
+                          }`}
+                          title={
+                            isInherited
+                              ? "随方向加入计划，不可单独移除"
+                              : isStandalone
+                                ? "从学习计划中移除"
+                                : "加入学习计划"
+                          }
+                        >
+                          {isInPlan ? <Check className="h-4 w-4" /> : <Plus className="h-4 w-4" />}
+                        </button>
+                      </div>
+                    </div>
                   </div>
-                  <div className="mt-1 text-xs opacity-75">
-                    {course.core_kp}核心 · {course.important_kp}重点
-                  </div>
-                </Link>
-              ))}
+                )
+              })}
               {node.courses.length === 0 && (
                 <p className="text-sm text-gray-400">暂无课程</p>
               )}

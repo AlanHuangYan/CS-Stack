@@ -1,22 +1,16 @@
 import { Link } from "react-router-dom"
-import { BookOpen, PlayCircle, Clock } from "lucide-react"
+import { BookOpen, PlayCircle } from "lucide-react"
 import { api } from "../api/client"
 import { useState, useEffect } from "react"
 
 interface CourseProgress {
   status: string
-  completed_knowledge: string[]
 }
 
 interface CourseInfo {
   id: string
   title: string
   difficulty: string
-  knowledge_points: {
-    core: { name: string }[]
-    important: { name: string }[]
-    extended: { name: string }[]
-  }
 }
 
 interface CourseWithProgress {
@@ -94,20 +88,13 @@ export function ContinueLearning() {
 
       <div className="space-y-3">
         {inProgressCourses.map(({ id, progress, course }) => {
-          const totalKnowledge =
-            (course?.knowledge_points.core.length || 0) +
-            (course?.knowledge_points.important.length || 0) +
-            (course?.knowledge_points.extended.length || 0)
-          const completedCount = progress.completed_knowledge.length
-          const percentage = totalKnowledge > 0 ? Math.round((completedCount / totalKnowledge) * 100) : 0
-
           return (
             <Link
               key={id}
               to={`/courses/${id}`}
               className="group block rounded-lg border border-gray-100 p-4 transition hover:border-blue-200 hover:bg-blue-50/50"
             >
-              <div className="mb-2 flex items-center justify-between">
+              <div className="flex items-center justify-between">
                 <div>
                   <h4 className="font-medium text-gray-900 group-hover:text-blue-600">
                     {course?.title || id}
@@ -116,19 +103,8 @@ export function ContinueLearning() {
                     <span>{DIFFICULTY_LABELS[course?.difficulty || "beginner"]}</span>
                   </div>
                 </div>
-                <span className="text-sm font-medium text-blue-600">{percentage}%</span>
+                <span className="text-sm font-medium text-blue-600">学习中</span>
               </div>
-
-              <div className="h-2 rounded-full bg-gray-100">
-                <div
-                  className="h-2 rounded-full bg-blue-600 transition-all"
-                  style={{ width: `${percentage}%` }}
-                />
-              </div>
-
-              <p className="mt-2 text-xs text-gray-500">
-                已掌握 {completedCount}/{totalKnowledge} 个知识点
-              </p>
             </Link>
           )
         })}

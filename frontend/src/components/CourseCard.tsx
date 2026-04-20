@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom"
-import { BookOpen } from "lucide-react"
 import { Course } from "../types"
 
 const DIFFICULTY_LABELS: Record<string, string> = {
@@ -15,11 +14,6 @@ const DIFFICULTY_COLORS: Record<string, string> = {
 }
 
 export function CourseCard({ course }: { course: Course }) {
-  const totalPoints =
-    course.knowledge_points.core.length +
-    course.knowledge_points.important.length +
-    course.knowledge_points.extended.length
-
   return (
     <Link
       to={`/courses/${course.id}`}
@@ -29,9 +23,6 @@ export function CourseCard({ course }: { course: Course }) {
       <div className="mt-2 flex items-center gap-3 text-sm text-gray-500">
         <span className={`rounded-full px-2 py-0.5 text-xs font-medium ${DIFFICULTY_COLORS[course.difficulty]}`}>
           {DIFFICULTY_LABELS[course.difficulty]}
-        </span>
-        <span className="flex items-center gap-1">
-          <BookOpen className="h-4 w-4" /> {totalPoints} 知识点
         </span>
       </div>
       {course.prerequisites.length > 0 && (

@@ -137,3 +137,64 @@ def remove_course(course_id: str, user: dict = Depends(get_current_user)):
     ]
     write_user(user["user_id"], user)
     return {"message": "课程已从学习计划中移除"}
+
+
+@router.get("/me/completed")
+def get_completed_skills(user: dict = Depends(get_current_user)):
+    progress = user.get("progress", {})
+    
+    completed_course_ids = [
+        cid for cid, p in progress.items()
+        if p.get("status") == "completed"
+    ]
+    
+    if not completed_course_ids:
+        return {"directions": [], "total_completed": 0}
+    
+    directions = read_list(DIR_FILE, "directions")
+    subdirections = read_list(SUB_DIR_FILE, "subdirections")
+    all_courses = read_list(COURSE_FILE, "courses")
+    
+    course_map = {c["id"]: c for c in all_courses}
+    
+    dir_completed: dict = {}
+    
+    for dir_data in directions:
+        dir_id = dir_data["id"]
+        dir_name = dir_data.get("name", dir_id)
+        dir_icon = dir_data.get("icon", "📚")
+        
+        dir_course_ids = set()
+        for sub_id in dir_data.get("subdirections", []):
+            sub = next((s for s in subdirections if s["id"] == sub_id), None)
+            if sub:
+                dir_course_ids.update(sub.get("courses", []))
+        
+        completed_in_dir = []
+        for cid in completed_course_ids:
+            if cid in dir_course_ids and cid in course_map:
+                course = course_map[cid]
+                completed_in_dir.append({
+                    "id": cid,
+                    "title": course.get("title", cid),
+                    "difficulty": course.get("difficulty", "beginner"),
+                })
+        
+        if completed_in_dir:
+            dir_completed[dir_id] = {
+                "id": dir_id,
+                "name": dir_name,
+                "icon": dir_icon,
+                "courses": completed_in_dir,
+            }
+    
+    return {
+        "directions": list(dir_completed.values()),
+        "total_completed": len(completed_course_ids),
+    }
+
+
+@router.get("/me/calendar")
+def get_checkin_calendar(user: dict = Depends(get_current_user)):
+    stats = user.get("stats", {})
+    return {"checkin_calendar": stats.get("checkin_calendar", {}), "streak_days": stats.get("streak_days", 0)}

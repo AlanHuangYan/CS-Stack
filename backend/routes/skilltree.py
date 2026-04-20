@@ -31,14 +31,10 @@ def get_skill_tree(direction_id: str):
         sub_courses = []
         for c in courses:
             if c["id"] in sub.get("courses", []):
-                kp = c.get("knowledge_points", {})
                 sub_courses.append({
                     "id": c["id"],
                     "title": c["title"],
                     "difficulty": c["difficulty"],
-                    "core_kp": len(kp.get("core", [])),
-                    "important_kp": len(kp.get("important", [])),
-                    "extended_kp": len(kp.get("extended", [])),
                     "prerequisites": c.get("prerequisites", []),
                 })
         
@@ -46,12 +42,6 @@ def get_skill_tree(direction_id: str):
             "id": sub_id,
             "name": sub["name"],
             "courses": sub_courses,
-            "total_kp": sum(
-                len(c.get("knowledge_points", {}).get("core", []))
-                + len(c.get("knowledge_points", {}).get("important", []))
-                + len(c.get("knowledge_points", {}).get("extended", []))
-                for c in sub_courses
-            ),
         })
     
     return {

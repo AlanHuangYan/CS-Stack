@@ -3,6 +3,7 @@ import { DailyCheckin } from "../components/DailyCheckin"
 import { LearningStats } from "../components/LearningStats"
 import { XPProgress } from "../components/XPProgress"
 import { BadgeList } from "../components/BadgeList"
+import { CompletedSkills } from "../components/CompletedSkills"
 
 export function Dashboard() {
   const token = localStorage.getItem("token")
@@ -29,6 +30,10 @@ export function Dashboard() {
       <div className="mb-6 grid gap-6 md:grid-cols-2">
         <DailyCheckin />
         <LearningStats />
+      </div>
+
+      <div className="mb-6">
+        <CompletedSkills />
       </div>
 
       <div className="mb-6">
